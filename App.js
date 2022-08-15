@@ -12,7 +12,6 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/> */}
         <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
         <Stack.Screen name="Info" component={Info} options={{headerShown: false}}/>
       </Stack.Navigator>
