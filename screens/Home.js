@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView, FlatList, TextInput, StyleSheet, RefreshControl } from 'react-native';
+import { View, Text, ScrollView, FlatList, TextInput, StyleSheet, RefreshControl,Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Card from '../common/Card';
 import Footer from '../common/Footer';
@@ -73,15 +73,21 @@ const Home = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#ccc' }}>
             <View style={{ flex: 1}}>
-                <TextInput
-                style={styles.input}
-                value={search}
-                placeholder='Search'
-                underlineColorAndroid="transparent"
-                onChangeText={(input)=> {
-                    searchFilter(input)
-                }}
+                <View style={styles.views}>
+                    <Image
+                    style={{ width: 35, height: 35 }}
+                    source={require('../images/newspaper.png')}
+                    />
+                    <TextInput
+                    style={styles.input}
+                    value={search}
+                    placeholder='Search'
+                    underlineColorAndroid="transparent"
+                    onChangeText={(input)=> {
+                        searchFilter(input)
+                    }}
                 />
+                </View>
                 <FlatList
                     style={{ padding: 6, flex: 1}}
                     data={filteredNews}
@@ -107,14 +113,20 @@ export default Home
 
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'white'
-    },  
+    views: {
+        flexShrink: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backgroundColor: "gray",
+        padding: 10,
+    }, 
     itemStyle: {
         padding: 15,
     },
     input: {
-        height: 50,
+        height: 40,
+        width: 200,
         borderWidth: 1,
         paddingLeft: 5,
         margin: 5,
